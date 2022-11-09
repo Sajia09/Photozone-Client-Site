@@ -5,7 +5,7 @@ import { authContext } from '../../Contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
     const [error, setError] = useState('');
-    const { signIn, setLoading } = useContext(authContext);
+    const { signIn, setLoading , loading} = useContext(authContext);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
@@ -33,8 +33,11 @@ const Login = () => {
             })
 
         }
+
+        
     return (
         <div className='mx-20 p-20 bg-blue-100'>
+            <h2 className="text-5xl">Login</h2>
   <Card className='mx-20'>
     <form onSubmit={handleSubmit} className="flex flex-col gap-2">
     
@@ -71,7 +74,7 @@ const Login = () => {
       </div>
       {error}
       <p>Don't have an account? <Link className='text-blue-500' to='/signup'>Signup Here</Link></p>
-      <Button type="submit">
+      <Button type="submit" >
        Login
       </Button>
     </form>

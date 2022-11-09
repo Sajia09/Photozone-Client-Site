@@ -63,15 +63,17 @@ const Header = () => {
                     Blog
                 </Link>
                 {
-                    user.uid?
-                   
-                    <Link to="/Login" className='text-xl nav-item'>
-                    Login
-                    </Link>
-                    :
+                    user?.uid?
+
                     <Link to="/Review" className='text-xl nav-item'>
                     Review
                     </Link>
+                    :
+                    <Link to="/Login" className='text-xl nav-item'>
+                    Login
+                    </Link>
+                    
+                    
                 }
             </Navbar.Collapse>
         </Navbar>
