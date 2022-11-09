@@ -8,7 +8,6 @@ const Login = () => {
     const { signIn, setLoading } = useContext(authContext);
     const navigate = useNavigate();
     const location = useLocation();
-
     const from = location.state?.from?.pathname || '/';
 
     const handleSubmit = event => {

@@ -62,9 +62,17 @@ const Header = () => {
                 <Link to="/blog" className='text-xl nav-item'>
                     Blog
                 </Link>
-                <Link to="/Login" className='text-xl nav-item'>
+                {
+                    user.uid?
+                   
+                    <Link to="/Login" className='text-xl nav-item'>
                     Login
-                </Link>
+                    </Link>
+                    :
+                    <Link to="/Review" className='text-xl nav-item'>
+                    Review
+                    </Link>
+                }
             </Navbar.Collapse>
         </Navbar>
     );
