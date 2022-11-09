@@ -4,11 +4,23 @@ import {  toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import { authContext } from '../../Contexts/AuthProvider/AuthProvider';
 import 'react-toastify/dist/ReactToastify.css';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Signup = () => {
 
-    const { createUser, updateUserProfile } = useContext(authContext);
+    const { createUser, updateUserProfile, providerLogin } = useContext(authContext);
     const [error, setError] = useState('');
+
+    const googleProvider = new GoogleAuthProvider()
+
+    const handleGoogleSignIn = () => {
+        providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.error(error))
+    }
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -45,9 +57,8 @@ const Signup = () => {
             .catch(error => console.error(error));
     }
 
-
     return (
-        <div className='mx-20 p-20 bg-blue-100'>
+ <div className='mx-20 p-20 bg-blue-100'>
   <Card className='mx-20'>
     <form onSubmit={handleSubmit} className="flex flex-col gap-2">
     <div>
@@ -111,12 +122,13 @@ const Signup = () => {
           autoComplete='123456'
         />
       </div>
+      <p>{error}</p>
       <p>Already have an account? <Link className='text-blue-500' to='/login'>Login Here</Link></p>
       <Button type="submit">
         Submit
       </Button>
     </form>
-    <Button type="submit" className='text-center'>
+    <Button onClick={handleGoogleSignIn} type="submit" className='text-center'>
         Sign In With Google
       </Button>
   </Card>

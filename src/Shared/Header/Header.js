@@ -1,10 +1,18 @@
-import { Avatar, Dropdown, Navbar } from 'flowbite-react';
-import React from 'react';
+import { Avatar, Button, Dropdown, Navbar } from 'flowbite-react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { authContext } from '../../Contexts/AuthProvider/AuthProvider';
 import logo from '../../images/logo-1.png';
 import './Header.css'
 
 const Header = () => {
+    const { user, logOut } = useContext(authContext);
+    console.log(user);
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
     return (
         <Navbar
             fluid={true}
@@ -24,19 +32,19 @@ const Header = () => {
                 <Dropdown
                     arrowIcon={false}
                     inline={true}
-                    label={<Avatar alt="User settings" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" rounded={true} />}
+                    label={<Avatar alt="User settings" img={user?.photoURL} rounded={true} />}
                 >
                     <Dropdown.Header>
                         <span className="block text-sm">
-                            Bonnie Green
+                            {user?.displayName}
                         </span>
                         <span className="block truncate text-sm font-medium">
-                            name@flowbite.com
+                            {user?.email}
                         </span>
                     </Dropdown.Header>
                     <Dropdown.Divider />
                     <Dropdown.Item>
-                        Sign out
+                        <Button onClick={handleLogOut}>Sign Out</Button>
                     </Dropdown.Item>
                 </Dropdown>
                 <Navbar.Toggle />
@@ -54,7 +62,7 @@ const Header = () => {
                 <Link to="/blog" className='text-xl nav-item'>
                     Blog
                 </Link>
-                <Link to="/signup" className='text-xl nav-item'>
+                <Link to="/Login" className='text-xl nav-item'>
                     Login
                 </Link>
             </Navbar.Collapse>
