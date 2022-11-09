@@ -5,6 +5,11 @@ import './ServiceCard.css'
 
 const ServiceCard = ({service}) => {
     const {name, img, price, rating,description,_id} = service;
+    const handleInfo = () =>{
+      localStorage.setItem('serviceId',_id);
+      localStorage.setItem('serviceName',name);
+  }
+ 
     return (
         <div className="max-w-sm">
   <Card className='card'
@@ -66,7 +71,7 @@ const ServiceCard = ({service}) => {
       <span className="text-3xl font-bold text-blue-600 dark:text-white">
         {`$${price}`}
       </span>
-      <Link to={`/services/${_id}`}><Button gradientDuoTone="cyanToBlue">View Details</Button></Link>
+      <Link to={`/services/${_id}`}><Button onClick={handleInfo} gradientDuoTone="cyanToBlue">View Details</Button></Link>
     </div>
   </Card>
   

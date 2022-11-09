@@ -1,10 +1,13 @@
 import { Card } from 'flowbite-react';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { authContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import ReviewForm from '../ReviewForm/ReviewForm';
 import ReviewDetailsShow from './ReviewDetailsShow';
 
 const PersonReview = ({params}) => {
+
+    const {user} = useContext(authContext);
    
     const [reviews, setReviews] = useState([]);
     const [updatedReview, setUpdatedReview] = useState(false);
@@ -13,7 +16,7 @@ const PersonReview = ({params}) => {
         fetch(`http://localhost:5000/reviews/${params}`)
         .then(res=> res.json())
         .then(data => setReviews(data))
-    },[])
+    },[updatedReview])
 
     return (
       <div>
@@ -28,7 +31,7 @@ const PersonReview = ({params}) => {
       </div>
       <div>
         {
-            <ReviewForm reviews={reviews}></ReviewForm>
+            <ReviewForm reviews={reviews} setReview={setUpdatedReview}></ReviewForm>
         }
       </div>
       </div>

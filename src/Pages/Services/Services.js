@@ -4,6 +4,7 @@ import ServiceCard from './ServiceCard';
 
 const Services = () => {
     const services = useLoaderData();
+    
     return (
         <div>
             <h1 className="text-4xl text-blue-700 font-bold mt-5">Services Provided By PhotoZone</h1>

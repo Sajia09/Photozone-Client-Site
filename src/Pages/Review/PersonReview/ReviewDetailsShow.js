@@ -4,6 +4,8 @@ import React from 'react';
 
 const ReviewDetailsShow = ({ review }) => {
     const { reviewerName, email, serviceId, serviceName, raing, text, img } = review;
+
+
     return (
             <div className="max-w-sm">
             <Card>

@@ -17,6 +17,7 @@ const Header = () => {
         <Navbar
             fluid={true}
             rounded={true}
+            className="sticky top-0"
         >
             <Navbar.Brand href="/">
                 <img
@@ -64,10 +65,14 @@ const Header = () => {
                 </Link>
                 {
                     user?.uid?
-
-                    <Link to="/Review" className='text-xl nav-item'>
-                    Review
+                    <>
+                    <Link to="/myreviews" className='text-xl nav-item'>
+                    My Reviews
                     </Link>
+                    <Link to="/addServices" className='text-xl nav-item'>
+                    Add Service
+                    </Link>
+                    </>
                     :
                     <Link to="/Login" className='text-xl nav-item'>
                     Login

@@ -2,11 +2,12 @@ import { Button } from 'flowbite-react';
 import React, { useContext } from 'react';
 import { authContext } from '../../../Contexts/AuthProvider/AuthProvider';
 
-const ReviewForm = ({reviews}) => {
-    const name = reviews[0]?.serviceName;
-    const id = reviews[0]?.serviceId;
-    const img = reviews[0]?.img;
+const ReviewForm = ({reviews,setReview}) => {
+    const name = localStorage.getItem('serviceName');
+    const id = localStorage.getItem('serviceId');
+    console.log(name,id)
     const {user} = useContext(authContext);
+    const img = user?.photoURL;
 
     const handleReview = (event)=>{
         event.preventDefault();
@@ -46,6 +47,8 @@ const ReviewForm = ({reviews}) => {
                 }
             })
             .catch(er => console.error(er));
+            setReview(true);
+
     }
     return (
         <div>
@@ -64,7 +67,7 @@ const ReviewForm = ({reviews}) => {
                             </div>
                             <div className="w-full">
                                 <label for="brand" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Service Id</label>
-                                <input type="text" name="serviceId" id="serviceId" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Service Id" defaultValue={id} required="" />
+                                <input type="password" name="serviceId" id="serviceId" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Service Id" defaultValue={id} required="" autoComplete='on'/>
                             </div>
                             <div className="w-full">
                                 <label for="price" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Reveiwer Name</label>
