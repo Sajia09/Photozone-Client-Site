@@ -50,7 +50,7 @@ const router = createBrowserRouter([
             {
                 path:'/myreviews/:email',
                 element:<PrivateRoute><MyReview></MyReview></PrivateRoute>,
-                loader:({params})=> fetch(`http://localhost:5000/myreviews/${params.email}`)
+                loader:({params})=> fetch(`https://assignment11-server-site-sajia09.vercel.app/myreviews/${params.email}`)
             },
         ]
     }
