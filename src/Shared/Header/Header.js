@@ -66,7 +66,7 @@ const Header = () => {
                 {
                     user?.uid?
                     <>
-                    <Link to="/myreviews" className='text-xl nav-item'>
+                    <Link to={`/myreviews/${user?.email}`} className='text-xl nav-item'>
                     My Reviews
                     </Link>
                     <Link to="/addServices" className='text-xl nav-item'>

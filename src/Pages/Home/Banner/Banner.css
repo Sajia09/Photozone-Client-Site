@@ -7,11 +7,8 @@
   opacity: 0,4;  
     
 }
-.banner-img{
-   
-}
 .centered {
-    position: absolute;
+    position: fixed;
     margin: 30px;
     padding: 20px;
     top: 50%;

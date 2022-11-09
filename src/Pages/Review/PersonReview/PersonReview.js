@@ -13,7 +13,7 @@ const PersonReview = ({params}) => {
     const [updatedReview, setUpdatedReview] = useState(false);
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/reviews/${params}`)
+        fetch(`https://assignment11-server-site-sajia09.vercel.app/reviews/${params}`)
         .then(res=> res.json())
         .then(data => setReviews(data))
     },[updatedReview])
