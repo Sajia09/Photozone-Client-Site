@@ -69,7 +69,7 @@ const Header = () => {
                     <Link to={`/myreviews/${user?.email}`} className='text-xl nav-item'>
                     My Reviews
                     </Link>
-                    <Link to="/addServices" className='text-xl nav-item'>
+                    <Link to="/addservice" className='text-xl nav-item'>
                     Add Service
                     </Link>
                     </>

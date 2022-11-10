@@ -31,7 +31,7 @@ const PersonReview = ({params}) => {
       </div>
       <div>
         {
-            <ReviewForm reviews={reviews} setReview={setUpdatedReview}></ReviewForm>
+            <ReviewForm reviews={reviews} setUpdatedReview={setUpdatedReview}></ReviewForm>
         }
       </div>
       </div>

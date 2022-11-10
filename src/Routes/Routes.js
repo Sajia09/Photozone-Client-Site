@@ -1,3 +1,4 @@
+import AddService from "../Pages/AddService/AddService";
 import Blog from "../Pages/Blog/Blog";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
             {
                 path:'/reviews/:id',
                 element:<PrivateRoute><PersonReview></PersonReview></PrivateRoute>,
+            },
+            {
+                path:'/addservice',
+                element:<PrivateRoute><AddService></AddService></PrivateRoute>,
             },
             {
                 path:'/myreviews/:email',

@@ -66,7 +66,7 @@ const ServiceCard = ({service}) => {
        {rating}
       </span>
     </div>
-    <div><p>{description.slice(0,100)}. . .</p></div>
+    <div><p>{description?.slice(0,100)}. . .</p></div>
     <div className="flex items-center justify-between">
       <span className="text-3xl font-bold text-blue-600 dark:text-white">
         {`$${price}`}

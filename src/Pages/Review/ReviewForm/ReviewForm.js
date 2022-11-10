@@ -2,10 +2,9 @@ import { Button } from 'flowbite-react';
 import React, { useContext } from 'react';
 import { authContext } from '../../../Contexts/AuthProvider/AuthProvider';
 
-const ReviewForm = ({reviews,setReview}) => {
+const ReviewForm = ({reviews,setUpdatedReview}) => {
     const name = localStorage.getItem('serviceName');
     const id = localStorage.getItem('serviceId');
-    console.log(name,id)
     const {user} = useContext(authContext);
     const img = user?.photoURL;
 
@@ -30,7 +29,7 @@ const ReviewForm = ({reviews,setReview}) => {
             text
         }
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://assignment11-server-site-sajia09.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -46,7 +45,7 @@ const ReviewForm = ({reviews,setReview}) => {
                 }
             })
             .catch(er => console.error(er));
-            setReview(true);
+            setUpdatedReview(true);
 
     }
     return (
