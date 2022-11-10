@@ -17,7 +17,7 @@ const MyReviewCard = ({ review, handleDelete }) => {
         texxt = event.target.text.value;
     }
       const handleStatusUpdate = (id) => {
-        fetch(`http://localhost:5000/${id}`, {
+        fetch(`https://assignment11-server-site-sajia09.vercel.app/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',
