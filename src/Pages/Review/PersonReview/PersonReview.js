@@ -2,6 +2,7 @@ import { Card } from 'flowbite-react';
 import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { authContext } from '../../../Contexts/AuthProvider/AuthProvider';
+import PrivateRoute from '../../../Routes/PrivateRoute';
 import ReviewForm from '../ReviewForm/ReviewForm';
 import ReviewDetailsShow from './ReviewDetailsShow';
 
@@ -31,7 +32,7 @@ const PersonReview = ({params}) => {
       </div>
       <div>
         {
-            <ReviewForm reviews={reviews} setUpdatedReview={setUpdatedReview}></ReviewForm>
+           <PrivateRoute> <ReviewForm reviews={reviews} setUpdatedReview={setUpdatedReview}></ReviewForm></PrivateRoute>
         }
       </div>
       </div>

@@ -5,9 +5,10 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { authContext } from '../../Contexts/AuthProvider/AuthProvider';
 import 'react-toastify/dist/ReactToastify.css';
 import { GoogleAuthProvider } from 'firebase/auth';
+import UseTitle from '../../Hooks/UseTitle';
 
 const Signup = () => {
-
+  UseTitle('SignUp');
     const { createUser, updateUserProfile, providerLogin } = useContext(authContext);
     const [error, setError] = useState('');
     const navigate = useNavigate();

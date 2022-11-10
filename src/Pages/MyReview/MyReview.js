@@ -3,8 +3,10 @@ import { useLoaderData } from 'react-router-dom';
 import MyReviewCard from './MyReviewCard';
 import './MyReview.css'
 import { authContext } from '../../Contexts/AuthProvider/AuthProvider';
+import UseTitle from '../../Hooks/UseTitle';
 
 const MyReview = () => {
+    UseTitle('MyReviews');
     const {user,logOut} = useContext(authContext);
     const [reviews,setReviews] = useState([]);
     

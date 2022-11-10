@@ -1,9 +1,11 @@
 import { Button } from 'flowbite-react';
 import React from 'react';
 import { toast } from 'react-toastify';
+import UseTitle from '../../Hooks/UseTitle';
 
 const AddService = () => {
-
+    
+    UseTitle('Add Services');
     const handleAddService=(event)=>{
         event.preventDefault();
         const form = event.target;

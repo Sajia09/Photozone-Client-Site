@@ -44,37 +44,37 @@ const Header = () => {
                         </span>
                     </Dropdown.Header>
                     <Dropdown.Divider />
-                    <Dropdown.Item>
-                        <Button onClick={handleLogOut}>Sign Out</Button>
-                    </Dropdown.Item>
                 </Dropdown>
                 <Navbar.Toggle />
             </div>
             <Navbar.Collapse >
                 <Link
                     to="/"
-                    className='text-xl nav-item'
+                    className='text-sm nav-item'
                 >
                     Home
                 </Link>
-                <Link to="/services" className='text-xl nav-item' >
+                <Link to="/services" className='text-sm nav-item' >
                     Services
                 </Link>
-                <Link to="/blog" className='text-xl nav-item'>
+                <Link to="/blog" className='text-sm nav-item'>
                     Blog
                 </Link>
                 {
                     user?.uid?
                     <>
-                    <Link to={`/myreviews/${user?.email}`} className='text-xl nav-item'>
+                    <Link to={`/myreviews/${user?.email}`} className='text-sm nav-item'>
                     My Reviews
                     </Link>
-                    <Link to="/addservice" className='text-xl nav-item'>
+                    <Link to="/addservice" className='text-sm nav-item'>
                     Add Service
+                    </Link>
+                    <Link to="/" onClick={handleLogOut} className='text-sm nav-item'>
+                    Logout
                     </Link>
                     </>
                     :
-                    <Link to="/Login" className='text-xl nav-item'>
+                    <Link to="/Login" className='text-sm nav-item'>
                     Login
                     </Link>
                     
