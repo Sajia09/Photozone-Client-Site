@@ -6,7 +6,7 @@ const fter = () => {
         <Footer container={true}>
   <Footer.Copyright
     href="#"
-    by="Flowbite™"
+    by="Sajia™"
     year={2022}
   />
   <Footer.LinkGroup>
