@@ -29,7 +29,6 @@ const ReviewForm = ({reviews,setReview}) => {
             raing,
             text
         }
-        console.log(review);
 
         fetch('http://localhost:5000/reviews', {
             method: 'POST',

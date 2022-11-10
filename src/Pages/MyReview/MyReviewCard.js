@@ -2,8 +2,8 @@ import { Button, Card } from 'flowbite-react';
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
 
-const MyReviewCard = ({review}) => {
-    const { reviewerName, email, serviceId, serviceName, raing, text, img } = review;
+const MyReviewCard = ({review,handleDelete}) => {
+    const { reviewerName, email, serviceId, serviceName, raing, text, img,_id } = review;
     return (
         <div className="max-w-sm">
             <Card>
@@ -24,7 +24,7 @@ const MyReviewCard = ({review}) => {
                 </div>
                 </div> 
                 <Button>Edit Review</Button>
-                  <Button color="failure">Delete Review</Button>    
+                  <Button color="failure" onClick={()=>handleDelete(_id)}>Delete Review</Button>    
             </Card>
         </div>
     );

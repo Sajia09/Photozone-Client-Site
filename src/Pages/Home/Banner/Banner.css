@@ -8,7 +8,7 @@
     
 }
 .centered {
-    position: fixed;
+    position: absolute;
     margin: 30px;
     padding: 20px;
     top: 50%;
