@@ -4,6 +4,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 import UseTitle from '../../Hooks/UseTitle'
 import ServiceCard from '../Services/ServiceCard';
 import Banner from './Banner/Banner';
+import Contact from './Contact/Contact';
 const Home = () => {
     UseTitle('Home');
     const services = useLoaderData();
@@ -20,6 +21,7 @@ const Home = () => {
             }
             </div>
             <div><Link to='/services'><Button gradientDuoTone="cyanToBlue">See All</Button></Link></div>
+            <Contact></Contact>
         </div>
     );
 };
